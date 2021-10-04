@@ -1,0 +1,20 @@
+{
+  "name": "haizen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"dev": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lafrin/haizen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lafrin/haizen/issues"
+  },
+  "homepage": "https://github.com/lafrin/haizen#readme"
+}

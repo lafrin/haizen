@@ -1,5 +1,6 @@
 body {
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   font-family: "Nunito", sans-serif;
   box-sizing: content-box;
 }
@@ -15,6 +16,10 @@ header {
 
 header div {
   padding: 0 20px;
+}
+
+header .back i {
+  font-size: 1.4rem;
 }
 
 header .text {
@@ -42,5 +47,17 @@ header .text {
   border-radius: 10px;
   border: 1px solid #555;
   text-decoration: none;
+}
+
+.b-menu-category > .e-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.b-menu-category > .e-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 

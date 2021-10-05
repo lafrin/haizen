@@ -1,5 +1,6 @@
 body{
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   font-family: "Nunito", sans-serif;
   box-sizing:content-box;
 }
@@ -16,10 +17,11 @@ header{
   div{
     padding: 0 20px;
   }
-  .back{
+  .back i{
+    font-size: 1.4rem;
   }
   .text{
-    font-size: 1.6rem;;
+    font-size: 1.6rem;
     // color: rgb(142, 200, 247);
   }
 }
@@ -49,4 +51,21 @@ header{
     text-decoration: none;
   }
 }
+
+
+
+.b-menu-category{
+  >.e-title{
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  >.e-menu{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+}
+
 

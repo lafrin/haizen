@@ -1,0 +1,52 @@
+body{
+  width: 1200px;
+  font-family: "Nunito", sans-serif;
+  box-sizing:content-box;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+
+  background: rgb(142, 200, 247);;
+  height: 50px;
+
+  div{
+    padding: 0 20px;
+  }
+  .back{
+  }
+  .text{
+    font-size: 1.6rem;;
+    // color: rgb(142, 200, 247);
+  }
+}
+
+.top-menu{
+  display: flex;
+  justify-content: center;
+  // flex-direction: row;
+  font-size: 2rem;
+  padding: 30px 100px;
+  flex-wrap: wrap;
+  background: #fef;
+
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    margin: 20px 50px;
+    width: 300px;
+    height: 100px;
+    background: #4aa;
+
+    border-radius: 10px;
+    border: 1px solid #555;
+    text-decoration: none;
+  }
+}
+

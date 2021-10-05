@@ -12,16 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('shop_top');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/shop_menu', 'shopMenuController@index')->name('menu');
 
 Auth::routes();
 

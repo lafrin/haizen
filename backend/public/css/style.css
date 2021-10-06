@@ -1,8 +1,6 @@
 body {
   max-width: 1200px;
   width: 100%;
-  font-family: "Nunito", sans-serif;
-  box-sizing: content-box;
 }
 
 header {
@@ -24,6 +22,10 @@ header .back i {
 
 header .text {
   font-size: 1.6rem;
+}
+
+.b-content {
+  padding: 20px 20px 20px;
 }
 
 .top-menu {
@@ -59,5 +61,53 @@ header .text {
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.b-category-add {
+  text-align: right;
+}
+
+.b-category-add > .e-btn {
+  display: inline-block;
+  padding: 5px 1rem;
+  font-weight: bold;
+  background: #f66d9b;
+  border-radius: 5px;
+}
+
+.b-border {
+  height: 1px;
+  background: #333;
+  margin: 1rem 0;
+}
+
+.b-category-table {
+  width: 100%;
+}
+
+.b-category-head {
+  font-weight: bold;
+  background: #6cb2eb;
+}
+
+.b-category-head > .e-color,
+.b-category-head > .e-display {
+  text-align: center;
+}
+
+.b-category-body {
+  width: 100%;
+}
+
+.b-category-body > .e-color > div {
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #767676;
+}
+
+.b-category-body > .e-name input,
+.b-category-body > .e-short input {
+  width: 80%;
 }
 

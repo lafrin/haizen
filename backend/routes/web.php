@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('shop_top');
 });
 
-Route::get('/shop_menu', 'shopMenuController@index')->name('menu');
+Route::get('/shop_menu', 'ShopMenuController@index')->name('menu');
+Route::get('/menu_edit', 'MenuEditController@index')->name('menu');
 
 Auth::routes();
 

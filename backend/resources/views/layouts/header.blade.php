@@ -35,7 +35,9 @@
                 <div class="menu">menu</div>
             </header>
             
-            @yield('content')
+            <div class="b-content">
+                @yield('content')
+            </div>
             
         </main>
         @yield('script')

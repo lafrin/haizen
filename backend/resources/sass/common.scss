@@ -1,3 +1,13 @@
+@import 'variables';
+
+.table th{
+  padding: 0;
+}
+
+
+//---------------------------
+//ボタン
+//---------------------------
 .c-menu-btn{
   display: flex;
   justify-content: center;
@@ -13,6 +23,19 @@
   font-weight: bold;
 }
 
+.c-btn{
+  display: inline-block;
+  padding: 5px 1rem;
+  height: auto;
+  // width: 8rem;
+  font-weight: bold;
+  background: $rime;
+  border-radius: 5px;
+}
+
+//---------------------------
+//スイッチ
+//---------------------------
  /* === ボタンを表示するエリア ============================== */
 .switchArea {
   line-height    : 30px;                /* 1行の高さ          */

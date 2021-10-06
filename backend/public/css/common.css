@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.table th {
+  padding: 0;
+}
+
 .c-menu-btn {
   display: flex;
   justify-content: center;
@@ -13,6 +17,15 @@
   text-decoration: none !important;
   color: black !important;
   font-weight: bold;
+}
+
+.c-btn {
+  display: inline-block;
+  padding: 5px 1rem;
+  height: auto;
+  font-weight: bold;
+  background: #60dda9;
+  border-radius: 5px;
 }
 
 /* === ボタンを表示するエリア ============================== */

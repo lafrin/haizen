@@ -16,7 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/shop_menu', 'ShopMenuController@index')->name('menu');
-Route::get('/menu_edit', 'MenuEditController@index')->name('menu');
+
+//商品編集
+Route::get('/menu_edit', 'MenuEditController@index')->name('menu.category');
+Route::get('/menu_edit/item', 'MenuEditController@item')->name('menu.item');
 
 Auth::routes();
 

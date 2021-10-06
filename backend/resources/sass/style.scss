@@ -5,13 +5,19 @@ body{
   width: 100%;
 }
 
+a{
+  text-decoration: none !important;
+  color: black;
+}
+
+
 header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
 
-  background: rgb(142, 200, 247);;
+  background: $u-main;
   height: 50px;
 
   div{
@@ -83,33 +89,37 @@ header{
 //カテゴリー編集
 //------------------------
 .b-category-add{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.b-category-save{
+  position: sticky;
+  bottom: 50px;
+  right: 0px;
+  padding: 20px;
   text-align: right;
-  >.e-btn{
-    display: inline-block;
-    padding: 5px 1rem;
-    // width: 8rem;
-    font-weight: bold;
-    background: $pink;
-    border-radius: 5px;
-  }
+  border-top: 1px solid $gray;
+}
+// .b-border{
+//   height: 1px;
+//   background: $darkgray;
+//   margin: 1rem 0;
+// }
+.b-category-table{
+  height: 100%;
 }
 
-.b-border{
-  height: 1px;
-  background: $darkgray;
-  margin: 1rem 0;
-}
-.b-category-table{
-  width: 100%;
-}
 .b-category-head{
   font-weight: bold;
-  background: $cyan;
+  background: $lightgray;
   >.e-color,
   >.e-display{
     text-align: center;
+    margin: auto;
   }
 }
+
 .b-category-body{
   width: 100%;
   >.e-color{
@@ -124,7 +134,16 @@ header{
   >.e-short input{
     width: 80%;
   }
-  >.e-name{
-
+  >.e-trash{
+    text-align: center;
+    .trash{
+      font-size: 1.3rem;
+      color: $u-main;
+    }
   }
+}
+.aaa{
+  background: #330;
+  width: 100%;
+  height: 500px;
 }

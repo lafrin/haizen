@@ -4,17 +4,19 @@
 <section>
 
   <div class="b-category-add">
-    <a class="c-btn m-item" href="{{route('menu.item')}}">⇒商品画面</a>
-    <a class="c-btn m-add">＋カテゴリー追加</a>
+    <div class="c-btn m-item">⇒商品画面</div>
+    <div class="c-btn m-add">＋カテゴリー追加</div>
   </div>
 
   <div class="table-responsive">
     <table class="table b-category-table">
       <thead>
         <tr class="b-category-head">
-          <th class="e-color" style="width:10%;">色</th>
+          <th class="e-color" style="width:10%;">順番</th>
           <th class="e-name" style="width:35%;">カテゴリー名</th>
-          <th class="e-short" style="width:35%;">カテゴリー（略称）</th>
+          <th class="e-short" style="width:35%;">商品名</th>
+          <th class="e-display" style="width:10%;">価格</th>
+          <th class="e-display" style="width:10%;">画像</th>
           <th class="e-display" style="width:10%;">表示</th>
           <th class="e-display" style="width:10%;">削除</th>
         </tr>

@@ -10,4 +10,9 @@ class MenuEditController extends Controller
     {
         return view('menu/category');
     }
+
+    public function item()
+    {
+        return view('menu/items');
+    }
 }

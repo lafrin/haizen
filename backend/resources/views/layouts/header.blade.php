@@ -22,6 +22,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css?').date('is') }}" rel="stylesheet">
+        <link href="{{ asset('css/reset.css?').date('is') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css?').date('is') }}" rel="stylesheet"> 
         <link href="{{ asset('css/common.css?').date('is') }}" rel="stylesheet"> 
         <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">

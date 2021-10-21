@@ -6,7 +6,7 @@
   <a href="#">オーダー</a>
   <a>キッチン</a>
   <a>会計</a>
-  <a href="{{ route('menu.category') }}">商品編集</a>
+  <a href="{{ route('menu_cat') }}">商品編集</a>
   <a>dm</a>
 </section>
 

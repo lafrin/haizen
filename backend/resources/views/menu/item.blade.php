@@ -4,7 +4,7 @@
 <section>
 
   <div class="b-category-add">
-    <a class="c-btn m-item" href="{{route('menu_item')}}">⇒商品画面</a>
+    <a class="c-btn m-item" href="{{route('menu_cat')}}">⇒かてごり画面</a>
     <a class="c-btn m-add">＋カテゴリー追加</a>
   </div>
 
@@ -12,11 +12,13 @@
     <table class="table b-category-table">
       <thead>
         <tr class="b-category-head">
-          <th class="e-color" style="width:10%;">色</th>
+          <th class="e-order" style="width:10%;">順番</th>
           <th class="e-name" style="width:35%;">カテゴリー名</th>
-          <th class="e-short" style="width:35%;">カテゴリー（略称）</th>
+          <th class="e-short" style="width:35%;">商品名</th>
+          <th class="e-price" style="width:10%;">価格</th>
+          <th class="e-image" style="width:10%;">画像</th>
           <th class="e-display" style="width:10%;">表示</th>
-          <th class="e-display" style="width:10%;">削除</th>
+          <th class="e-trash" style="width:10%;">削除</th>
         </tr>
       </thead>
       <tbody>
@@ -57,7 +59,7 @@ $(function(){
 
   // 予約詳細モーダル起動
   $('.m-add').on('click', function() {
-    axios.get("{{ route('menu_cat.edit')}}")
+    axios.get("{{ route('menu_item.edit')}}")
     .then(function(res) {
         $('.category-modal').html(res.data).find('.modal').modal().trigger('launch');
     })
@@ -65,6 +67,8 @@ $(function(){
       console.log("error");
     });
   });
+
 })
 </script>
 @endsection
+

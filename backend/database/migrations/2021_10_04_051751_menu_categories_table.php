@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MenuCategoryTable extends Migration
+class MenuCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class MenuCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('menu_category', function (Blueprint $table) {
+        Schema::create('menu_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
             $table->string('name');
-            $table->string('name_short');
+            $table->string('short_name');
+            $table->string('color');
+            $table->boolean('display')->default(1);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
@@ -30,6 +32,6 @@ class MenuCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::drop('menu_category');
+        Schema::drop('menu_categories');
     }
 }

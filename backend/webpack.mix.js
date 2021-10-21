@@ -23,5 +23,6 @@ mix.browserSync({
    files: [
          'resources/views/**/*.blade.php',
          'public/css/*.css',
+         'Http/*',
    ],
 });

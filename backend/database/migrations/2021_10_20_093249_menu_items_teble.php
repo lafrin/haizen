@@ -16,9 +16,11 @@ class MenuItemsTeble extends Migration
         Schema::create('menu_items', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
+            $table->integer('sort_order');
             $table->string('name');
-            $table->string('short_name');
-            $table->string('color');
+            $table->integer('category_id')->nullable();
+            $table->integer('price')->nullable();
+            $table->string('image_path')->nullable();
             $table->boolean('display')->default(1);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

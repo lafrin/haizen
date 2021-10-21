@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\MenuCategory;
+use App\MenuItem;
+use Storage;
 
 class MenuItemController extends Controller
 {
@@ -21,7 +22,7 @@ class MenuItemController extends Controller
 
     public function index()
     {
-        $categories = MenuCategory::where('user_id', Auth::id())->get();
+        $categories = MenuItem::where('user_id', Auth::id())->get();
         return view('menu/item', compact('categories'));
     }
 
@@ -32,7 +33,17 @@ class MenuItemController extends Controller
     }
     public function create(Request $request)
     {
-        $path = $request->images->store('public/images');
+        $post = new MenuItem;
+        $image = $request->file('images');
+        //putFile(フォルダパス,　画像file,　publicにすると公開設定（無くていい）)
+        $path = Storage::disk('s3')->putFile('food', $image, 'public');
+        $post->user_id = 1;
+        $post->sort_order = 1;
+        $post->name = "namename";
+        $post->category_id = 1;
+        $post->price = "100";
+        $post->image_path = Storage::disk('s3')->url($path);
+        $post->save();
         // dd($request->images);
         // $category = MenuCategory::create([
         //     'user_id' => Auth::id(),
@@ -41,6 +52,6 @@ class MenuItemController extends Controller
         //     'short_name' => $request->category_short
         // ]);
         
-        return redirect()->route('menu_cat');
+        return redirect()->route('menu_item');
     }
 }

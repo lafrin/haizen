@@ -7,27 +7,30 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form method="POST" action="{{ route('menu_cat.create')}}">
-        @csrf
-        <div class="form-group">
-          <label for="category-name">色</label>
-          <div></div>
-        </div>
-        <div class="form-group">
-          <label for="category-name">カテゴリー名</label>
-          <input type="text" class="form-control" id="category-name" name="category_name">
-        </div>
-        <div class="form-group">
-          <label for="category-short">カテゴリー（略称）</label>
-          <input type="text" class="form-control" id="category-short" name="category_short">
-        </div>
-      
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-          <button class="btn btn-primary" type="submit" name="submit">登録</button>
-        </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ route('menu_cat.create')}}">
+          @csrf
+          <div class="form-group">
+            <label for="category-name">色</label>
+            <div class="color"></div>
+          </div>
+          <div class="form-group">
+            <label for="category-name">カテゴリー名</label>
+            <input type="text" class="form-control" id="category-name" name="category_name">
+          </div>
+          <div class="form-group">
+            <label for="category-short">カテゴリー（略称）</label>
+            <input type="text" class="form-control" id="category-short" name="category_short">
+          </div>
+        
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+            <button class="btn btn-primary" type="submit" name="submit">登録</button>
+          </div>
 
-      </form>
+        </form>
+      </div>
+      
     </div>
   </div>
 </div>

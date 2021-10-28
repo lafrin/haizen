@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\MenuCategory;
 
-class MenuEditController extends Controller
+class MenuCategoryController extends Controller
 {
     /**
      * Create a new controller instance.

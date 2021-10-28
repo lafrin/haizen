@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ShopMenuController extends Controller
+class TopMenuController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,7 +18,7 @@ class ShopMenuController extends Controller
 
     public function index()
     {
-        return view('shop_menu/menu_top');
+        return view('top_menu');
     }
    
 }

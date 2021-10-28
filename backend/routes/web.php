@@ -12,20 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('shop_top');
+    return view('top');
 });
 
-Route::get('/shop_menu', 'ShopMenuController@index')->name('menu');
+// Auth::routes();
+// Route::group(['middleware' => ['auth']], function(){
+    Route::get('/top_menu', 'TopMenuController@index')->name('menu');
 
-//商品編集
-Route::match(['get', 'post'],'/menu_category', 'MenuEditController@index')->name('menu_cat');
-Route::get('/menu_category/edit', 'MenuEditController@edit')->name('menu_cat.edit');
-Route::post('/menu_category/create', 'MenuEditController@create')->name('menu_cat.create');
+    //商品編集
+    Route::match(['get', 'post'],'/menu_category', 'MenuCategoryController@index')->name('menu_cat');
+    Route::get('/menu_category/edit', 'MenuCategoryController@edit')->name('menu_cat.edit');
+    Route::post('/menu_category/create', 'MenuCategoryController@create')->name('menu_cat.create');
 
-Route::match(['get', 'post'],'/menu_item', 'MenuItemController@index' )->name('menu_item');
-Route::get('/menu_item/edit', 'MenuItemController@edit')->name('menu_item.edit');
-Route::post('/menu_item/create', 'MenuItemController@create')->name('menu_item.create');
+    Route::match(['get', 'post'],'/menu_item', 'MenuItemController@index' )->name('menu_item');
+    Route::get('/menu_item/edit', 'MenuItemController@edit')->name('menu_item.edit');
+    Route::post('/menu_item/create', 'MenuItemController@create')->name('menu_item.create');
 
-Auth::routes();
+    Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
+// });

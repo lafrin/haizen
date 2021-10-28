@@ -29,12 +29,16 @@
 
     </head>
     <body>
+        <header>
+            <a class="back" href="{{url('/')}}"><i class="fas fa-reply"></i></a> 
+            <div class="text">HAIZEN</div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" name="logout">
+                @csrf
+                <a href="javascript:document.logout.submit()">ログアウト</a>
+            </form>
+        </header>
         <main>
-            <header>
-                <div class="back"><i class="fas fa-reply"></i></div> 
-                <div class="text">HAIZEN</div>
-                <div class="menu">menu</div>
-            </header>
+       
             
             <div class="b-content">
                 @yield('content')

@@ -21,7 +21,8 @@ Route::get('/', function () {
 
     //商品編集
     Route::match(['get', 'post'],'/menu_category', 'MenuCategoryController@index')->name('menu_cat');
-    Route::get('/menu_category/edit', 'MenuCategoryController@edit')->name('menu_cat.edit');
+    Route::post('/menu_category/edit', 'MenuCategoryController@edit')->name('menu_cat.edit');
+    Route::get('/menu_category/create_modal', 'MenuCategoryController@createModal')->name('menu_cat.create_modal');
     Route::post('/menu_category/create', 'MenuCategoryController@create')->name('menu_cat.create');
 
     Route::match(['get', 'post'],'/menu_item', 'MenuItemController@index' )->name('menu_item');

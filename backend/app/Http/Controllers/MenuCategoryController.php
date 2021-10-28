@@ -25,16 +25,24 @@ class MenuCategoryController extends Controller
         return view('menu/category', compact('categories'));
     }
 
-    public function edit()
+    public function edit(Request $request){
+        dd($request->all());
+        // MenuCategory::updateOrCreate(
+        //     ['user_id' => $request->]
+        // );
+    }
+
+    public function createModal()
     {
         $title = "カテゴリー登録";
         return view('modal/category', compact('title') );
     }
+
     public function create(Request $request)
     {
         $category = MenuCategory::create([
             'user_id' => Auth::id(),
-            'color' => 'ff33f3',
+            'color' => '#ff33f3',
             'name' => $request->category_name,
             'short_name' => $request->category_short
         ]);

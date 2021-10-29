@@ -30,3 +30,7 @@ require('./bootstrap');
 // const app = new Vue({
 //     el: '#app',
 // });
+
+//追記
+//toaster
+window.toastr = require('toastr');

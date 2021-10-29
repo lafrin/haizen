@@ -104,15 +104,7 @@ header .text {
 }
 
 .b-category-body > .e-color > div {
-  margin: auto;
-  width: 30px;
   height: 30px;
-  border: 1px solid #767676;
-}
-
-.b-category-body > .e-name input,
-.b-category-body > .e-short input {
-  width: 80%;
 }
 
 .b-category-body > .e-trash {

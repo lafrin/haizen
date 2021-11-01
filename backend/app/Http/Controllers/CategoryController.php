@@ -7,23 +7,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\MenuCategory;
 
-class MenuCategoryController extends Controller
+class CategoryController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        
         $categories = MenuCategory::where('user_id', Auth::id())->get();
-        return view('menu/category', compact('categories'));
+        return view('setting/category', compact('categories'));
     }
 
     public function edit(Request $request){
@@ -45,8 +34,8 @@ class MenuCategoryController extends Controller
             );
         }
 
-        session()->flash('flash_msg','message内容');
-        return redirect( route('menu_cat') );
+        session()->flash('flash_msg','保存しました');
+        return redirect( route('category') );
     }
 
     public function showCreateModal()
@@ -59,12 +48,21 @@ class MenuCategoryController extends Controller
     {
         $category = MenuCategory::create([
             'user_id' => Auth::id(),
-            'color' => '#ff33f3',
+            'color' => '#ffffff',
             'name' => $request->category_name,
             'short_name' => $request->category_short
         ]);
         
-        return redirect()->route('menu_cat');
+        return redirect()->route('category');
+    }
+
+    public function delete(Request $request){
+        $user_id = Auth::id();
+        MenuCategory::where('user_id',Auth::id())
+        ->where('id',$request->input('category_id'))
+        ->delete();
+
+        return $request->input('category_id');
     }
 
 }

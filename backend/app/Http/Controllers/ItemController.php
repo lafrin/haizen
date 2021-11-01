@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\MenuItem;
 use Storage;
 
-class MenuItemController extends Controller
+class ItemController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -52,6 +52,6 @@ class MenuItemController extends Controller
         //     'short_name' => $request->category_short
         // ]);
         
-        return redirect()->route('menu_item');
+        return redirect()->route('item');
     }
 }

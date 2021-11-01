@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="{{ route('menu_cat.create')}}">
+        <form method="POST" action="{{ route('category.create')}}">
           @csrf
           <div class="form-group">
             <label for="category-name">色</label>

@@ -1,13 +1,13 @@
-@extends('layouts.header')
+@extends('layouts.main')
 
 @section('content')
 <section class="top-menu">
-  <a href="#"><span>席案内</span></a>
-  <a href="#">オーダー</a>
-  <a>キッチン</a>
-  <a>会計</a>
-  <a href="{{ route('menu_cat') }}">商品編集</a>
-  <a>dm</a>
+  <a href="#" class="btn btn-primary"><span>席案内<span><div>席案内します</div></a>
+  <a href="#" class="btn btn-primary">オーダー</a>
+  <a href="#" class="btn btn-primary">キッチン</a>
+  <a href="#" class="btn btn-primary">会計</a>
+  <a href="{{ route('config') }}" class="btn btn-primary">商品編集</a>
+  <a></a>
 </section>
 
 @endsection

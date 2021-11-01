@@ -29,21 +29,24 @@
 
     </head>
     <body>
-        <header>
-            <a class="back" href="{{url('/')}}"><i class="fas fa-reply"></i></a> 
-            <div class="text">HAIZEN</div>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" name="logout">
-                @csrf
-                <a href="javascript:document.logout.submit()">ログアウト</a>
-            </form>
-        </header>
+
+    
+        <div class="header-box">
+            @include('parts.header')
+        </div>
         <main>
-       
-            
-            <div class="b-content">
-                @yield('content')
+            <div class="" style="display:flex">
+                <div class="side-menu" style="">
+                    <div style="">  
+                        @include('parts.side_menu')
+                    </div>
+                </div>
+
+                <div class="" style="width:calc(100% - 200px);height:100%;">
+                    @yield('content')
+                    
+                </div>
             </div>
-            
         </main>
         @yield('script')
     </body>

@@ -14,22 +14,29 @@
 Route::get('/', function () {
     return view('top');
 });
-
-// Auth::routes();
-// Route::group(['middleware' => ['auth']], function(){
+Auth::routes();
+Route::group(['middleware' => ['auth']], function(){
+   
     Route::get('/top_menu', 'TopMenuController@index')->name('menu');
 
-    //商品編集
-    Route::match(['get', 'post'],'/menu_category', 'MenuCategoryController@index')->name('menu_cat');
-    Route::post('/menu_category/edit', 'MenuCategoryController@edit')->name('menu_cat.edit');
-    Route::get('/menu_category/create_modal', 'MenuCategoryController@showCreateModal')->name('menu_cat.create_modal');
-    Route::post('/menu_category/create', 'MenuCategoryController@create')->name('menu_cat.create');
+    
+    Route::prefix('setting')->group(function(){
+        Route::get('/', 'SettingController@index')->name('setting');
+        Route::get('/config', 'ConfigController@index')->name('config');
 
-    Route::match(['get', 'post'],'/menu_item', 'MenuItemController@index' )->name('menu_item');
-    Route::get('/menu_item/edit', 'MenuItemController@edit')->name('menu_item.edit');
-    Route::post('/menu_item/create', 'MenuItemController@create')->name('menu_item.create');
-
-    Auth::routes();
+        //商品編集
+        Route::prefix('category')->group(function(){
+            Route::match(['get', 'post'],'/', 'CategoryController@index')->name('category');
+            Route::post('/edit', 'CategoryController@edit')->name('category.edit');
+            Route::get('/create_modal', 'CategoryController@showCreateModal')->name('category.create_modal');
+            Route::post('/create', 'CategoryController@create')->name('category.create');
+            Route::post('/delete', 'CategoryController@delete')->name('category.delete');
+        });
+    
+        Route::match(['get', 'post'],'/item', 'MenuItemController@index' )->name('item');
+        Route::get('/item/edit', 'MenuItemController@edit')->name('item.edit');
+        Route::post('/item/create', 'MenuItemController@create')->name('item.create');
+    });
 
     Route::get('/home', 'HomeController@index')->name('home');
-// });
+});

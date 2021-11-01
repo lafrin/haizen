@@ -1,11 +1,14 @@
-body {
-  max-width: 1200px;
-  width: 100%;
-}
-
 a {
   text-decoration: none !important;
   color: black;
+}
+
+.header-box {
+  max-width: 1200px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 header {
@@ -13,8 +16,9 @@ header {
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  background: #8ec8f7;
+  background: #8ADBF4;
   height: 50px;
+  width: 100%;
 }
 
 header div {
@@ -29,17 +33,42 @@ header .text {
   font-size: 1.6rem;
 }
 
-.b-content {
-  padding: 20px 20px 20px;
+main {
+  margin-top: 50px;
+}
+
+body {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.side-menu {
+  width: 200px;
+  max-width: 200px;
+}
+
+.side-menu > div {
+  position: fixed;
+  background: #38f;
+  height: 100vh;
+  width: 100%;
+  max-width: 200px;
+}
+
+.b-side-menu {
+  color: white;
+  margin-top: 2rem;
+}
+
+.b-side-menu .side-active {
+  font-weight: bold;
 }
 
 .top-menu {
   display: flex;
   justify-content: center;
   font-size: 2rem;
-  padding: 30px 100px;
   flex-wrap: wrap;
-  background: #fef;
 }
 
 .top-menu a {
@@ -47,13 +76,14 @@ header .text {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 20px 50px;
-  width: 300px;
+  font-size: 1.5rem;
+  margin: 20px 30px;
+  width: 200px;
   height: 100px;
-  background: #4aa;
-  border-radius: 10px;
-  border: 1px solid #555;
-  text-decoration: none;
+}
+
+.top-menu a div:last-child {
+  font-size: 1rem;
 }
 
 .b-menu-category > .e-title {
@@ -68,29 +98,41 @@ header .text {
   width: 100%;
 }
 
-.b-category-add {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.category-table {
+  margin: 10px 0px 0;
+  height: calc(100vh - 20px - 50px - 70px);
 }
 
 .b-category-save {
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 50px;
-  right: 0px;
-  padding: 20px;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 80px;
+  padding: 10px 20px;
   border-top: 1px solid #767676;
+  background: #fff;
+}
+
+.b-category-save .btn {
+  height: 40px;
 }
 
 .b-category-table {
   height: 100%;
+  position: relative;
+  overflow-y: scroll;
 }
 
 .b-category-head {
   font-weight: bold;
   background: #ccc;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .b-category-head > .e-color,
@@ -101,6 +143,11 @@ header .text {
 
 .b-category-body {
   width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.b-category-body td {
+  vertical-align: middle;
 }
 
 .b-category-body > .e-color > div {
@@ -113,12 +160,6 @@ header .text {
 
 .b-category-body > .e-trash .trash {
   font-size: 1.3rem;
-  color: #8ec8f7;
-}
-
-.aaa {
-  background: #330;
-  width: 100%;
-  height: 500px;
+  color: #8ADBF4;
 }
 

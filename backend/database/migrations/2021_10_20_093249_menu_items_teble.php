@@ -16,9 +16,9 @@ class MenuItemsTeble extends Migration
         Schema::create('menu_items', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->integer('sort_order');
+            $table->integer('sort_order')->nullable();
             $table->string('name');
-            $table->integer('category_id')->nullable();
+            $table->integer('category_id');
             $table->integer('price')->nullable();
             $table->string('image_path')->nullable();
             $table->boolean('display')->default(0);

@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('top');
-});
+Route::get('/', 'HomeController@index')->name('home');
+
 Auth::routes();
 Route::group(['middleware' => ['auth']], function(){
    
@@ -32,10 +31,14 @@ Route::group(['middleware' => ['auth']], function(){
             Route::post('/create', 'CategoryController@create')->name('category.create');
             Route::post('/delete', 'CategoryController@delete')->name('category.delete');
         });
-    
-        Route::match(['get', 'post'],'/item', 'MenuItemController@index' )->name('item');
-        Route::get('/item/edit', 'MenuItemController@edit')->name('item.edit');
-        Route::post('/item/create', 'MenuItemController@create')->name('item.create');
+
+        //商品編集
+        Route::prefix('item')->group(function(){
+            Route::match(['get', 'post'],'/', 'ItemController@index' )->name('item');
+            Route::get('/edit', 'ItemController@edit')->name('item.edit');
+            Route::post('/create', 'ItemController@create')->name('item.create');
+            Route::post('/delete', 'ItemController@delete')->name('item.delete');
+        });
     });
 
     Route::get('/home', 'HomeController@index')->name('home');

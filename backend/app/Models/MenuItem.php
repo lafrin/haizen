@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MenuCategory extends Model
+class MenuItem extends Model
 {
-    //
     protected $guarded = ['id'];
+
 }

@@ -134,7 +134,6 @@ body{
 }
 
 .b-category-table{
-  height: 100%;
   position: relative;
   overflow-y: scroll;
 }
@@ -157,7 +156,7 @@ body{
   width: 100%;
   border-bottom: 1px solid $lightgray;
   td{
-    vertical-align: middle;
+    vertical-align: middle !important;
   }
   >.e-color{
     >div{

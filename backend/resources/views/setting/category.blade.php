@@ -1,4 +1,3 @@
-
 @extends('layouts.setting')
 
 @section('content')
@@ -6,55 +5,58 @@
 
 
   {{ Form::open(['route'=> 'category.edit'])}}
-    {{ Form::token() }}
-    <div class="table-form">
-      <div class="category-table table-responsive">
-        <table class="table b-category-table">
-          <thead>
-            <tr class="b-category-head">
-              <th class="e-sort" style="width:5%;"></th>
-              <th class="e-color" style="width:10%;">色</th>
-              <th class="e-name" style="width:30%;">カテゴリー名</th>
-              <th class="e-short" style="width:30%;">カテゴリー（略称）</th>
-              <th class="e-display" style="width:10%;">表示</th>
-              <th class="e-display" style="width:10%;"></th>
-            </tr>
-          </thead>
-          <tbody>
+  {{ Form::token() }}
+  <div class="table-form">
+    <div class="category-table table-responsive">
+      <table class="table b-category-table">
+        <thead>
+          <tr class="b-category-head">
+            <th class="e-sort" style="width:5%;"></th>
+            <th class="e-color" style="width:10%;">色</th>
+            <th class="e-name" style="width:30%;">カテゴリー名</th>
+            <th class="e-short" style="width:30%;">カテゴリー（略称）</th>
+            <th class="e-display" style="width:10%;">表示</th>
+            <th class="e-display" style="width:10%;"></th>
+          </tr>
+        </thead>
+        <tbody>
 
-            @foreach($categories as $cat)
-            <tr class="b-category-body">
-              {{ Form::hidden("category[id][]", $cat->id, ['class'=>'category_id']) }}
-              <td class="e-sort">三</td>
-              <td class="e-color">
-                {{ Form::text("category[color][]", $cat->color,['class' => 'form-control, picker']) }}
-              </td>
-              <td class="e-name">{{ Form::text("category[name][]", $cat->name, ['class' => 'form-control']) }}</td>
-              <td class="e-short">{{ Form::text("category[short_name][]", $cat->short_name, ['class' => 'form-control']) }}</td>
-              <td class="e-display">
-                <label class="switchArea">
-                  <!-- checkboxは0の時に送信されないのでon、off用に2つ作っている -->
-                  <input type="hidden" name="category[display][{{$loop->index}}][]" value="0">
-                  {{ Form::checkbox("category[display][$loop->index][]", true, $cat->display, ['class' => 'form-control']) }}
+          @foreach($categories as $cat)
+          <tr class="b-category-body">
+            {{ Form::hidden("category[id][]", $cat->id, ['class'=>'category_id']) }}
+            <td class="e-sort">三</td>
+            <td class="e-color">
+              {{ Form::text("category[color][]", $cat->color,['class' => 'form-control, picker']) }}
+            </td>
+            <td class="e-name">{{ Form::text("category[name][]", $cat->name, ['class' => 'form-control']) }}</td>
+            <td class="e-short">{{ Form::text("category[short_name][]", $cat->short_name, ['class' => 'form-control'])
+              }}</td>
+            <td class="e-display">
+              <label class="switchArea">
+                <!-- checkboxは0の時に送信されないのでon、off用に2つ作っている -->
+                <input type="hidden" name="category[display][{{$loop->index}}][]" value="0">
+                {{ Form::checkbox("category[display][$loop->index][]", true, $cat->display, ['class' => 'form-control'])
+                }}
 
-                  <div class="e-border"></div>
-                  <span></span>
-                  <div id="swImg"></div>
-                </label>
-              </td>
-              <td class="e-trash"><a class="delete-btn" data-id="{{$cat->id}}" href="#"><i class="fas fa-trash trash"></i></a></td>
-            </tr>
-            @endforeach
-            
-          </tbody>
-        </table>
-      </div>
+                <div class="e-border"></div>
+                <span></span>
+                <div id="swImg"></div>
+              </label>
+            </td>
+            <td class="e-trash"><a class="delete-btn" data-id="{{$cat->id}}" href="#"><i
+                  class="fas fa-trash trash"></i></a></td>
+          </tr>
+          @endforeach
 
-      <div class="b-category-save">
-        <a class="btn btn-primary m-add">＋カテゴリー追加</a>
-        <button class="btn btn-success m-save" type="submit">保存</button>
-      </div>
+        </tbody>
+      </table>
     </div>
+
+    <div class="b-category-save">
+      <a class="btn btn-primary m-add">＋カテゴリー追加</a>
+      <button class="btn btn-success m-save" type="submit">保存</button>
+    </div>
+  </div>
   {{ Form::close() }}
 
 
@@ -66,7 +68,8 @@
 @endsection
 
 @section('script')
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+</script>
 <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
 <script type="module">
   $(function(){

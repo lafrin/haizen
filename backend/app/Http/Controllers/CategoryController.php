@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\MenuCategory;
+use App\Models\MenuCategory;
 
 class CategoryController extends Controller
 {
     public function index()
     {
         $categories = MenuCategory::where('user_id', Auth::id())->get();
+        // dd($categories);
         return view('setting/category', compact('categories'));
     }
 

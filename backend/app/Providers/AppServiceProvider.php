@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //mysqlのバージョンが古くエラーがでるため、デフォルト255から191に制限
+        Schema::defaultStringLength(191);
     }
 }

@@ -21,7 +21,9 @@ class MenuItemsTeble extends Migration
             $table->integer('category_id');
             $table->integer('price')->nullable();
             $table->string('image_path')->nullable();
-            $table->boolean('display')->default(0);
+            $table->integer('option_type')->default(1);
+            $table->boolean('is_recommend')->default(0);
+            $table->boolean('is_display')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });

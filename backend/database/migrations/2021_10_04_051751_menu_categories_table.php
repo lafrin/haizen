@@ -20,7 +20,7 @@ class MenuCategoriesTable extends Migration
             $table->string('name');
             $table->string('short_name');
             $table->string('color');
-            $table->boolean('display')->default(0);
+            $table->boolean('is_display')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });

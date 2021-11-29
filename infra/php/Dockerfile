@@ -15,3 +15,11 @@ RUN apt-get update && \
 COPY ./php.ini /usr/local/etc/php/php.ini
 
 WORKDIR /work
+
+ARG USERNAME=hayashida
+ARG GROUPNAME=docker
+ARG UID=1000
+ARG GID=1001
+RUN groupadd -g $GID $GROUPNAME && \
+    useradd -m --uid $UID --gid $GID --groups docker $USERNAME
+USER $USERNAME

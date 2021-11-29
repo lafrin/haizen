@@ -15,7 +15,8 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        // 'passwords' => 'users',
+        'passwords' => 'shops',
     ],
 
     /*
@@ -38,12 +39,14 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            // 'provider' => 'users',
+            'provider' => 'shops',//追加
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            // 'provider' => 'users',
+            'provider' => 'shops',//追加
             'hash' => false,
         ],
     ],
@@ -66,9 +69,14 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        // 'users' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\User::class,
+        // ],
+        //追加
+        'shops' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Shop::class,
         ],
 
         // 'users' => [
@@ -93,8 +101,14 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        // 'users' => [
+        //     'provider' => 'users',
+        //     'table' => 'password_resets',
+        //     'expire' => 60,
+        //     'throttle' => 60,
+        // ],
+        'shops' => [
+            'provider' => 'shops',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

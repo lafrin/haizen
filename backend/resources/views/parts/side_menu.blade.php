@@ -1,17 +1,12 @@
-<style>
-  .b-side-menu {}
-</style>
-<div class="b-side-menu">
 
-  <ul>
-    <li class="{{ request()->is('setting/config') ? 'side-active' : ''}}">
-      <a href="{{ route('config') }}">基本設定</a>
-    </li>
-    <li class="{{ request()->is('setting/category') ? 'side-active' : ''}}">
-      <a href=" {{ route('category') }}">カテゴリー設定</a>
-    </li>
-    <li class="{{ request()->is('setting/item') ? 'side-active' : ''}}">
-      <a href=" {{ route('item') }}">商品設定</a>
-    </li>
-  </ul>
-</div>
+<ul class="ul b-side-menu list-group">
+  <li class="{{ request()->is('setting/config') ? 'active' : ''}}">
+    <a href="{{ route('config') }}"><i class="fas fa-user-cog"></i>基本設定</a>
+  </li>
+  <li class="{{ request()->is('setting/category') ? 'active' : ''}}">
+    <a href=" {{ route('category') }}"><i class="fas fa-cubes"></i>カテゴリー設定</a>
+  </li>
+  <li class="{{ request()->is('setting/item') ? 'active' : ''}}">
+    <a href=" {{ route('item') }}"><i class="fas fa-cube"></i>商品設定</a>
+  </li>
+</ul>

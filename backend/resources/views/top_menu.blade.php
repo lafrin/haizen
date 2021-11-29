@@ -2,10 +2,10 @@
 
 @section('content')
 <section class="top-menu">
-  <a href="#" class="btn btn-primary"><span>席案内<span><div>席案内します</div></a>
-  <a href="#" class="btn btn-primary">オーダー</a>
-  <a href="#" class="btn btn-primary">キッチン</a>
-  <a href="#" class="btn btn-primary">会計</a>
+  <a href="{{ route('hall')}}" class="btn btn-secondary"><span>ホール<span><div>席案内します</div></a>
+  <a href="" class="btn btn-secondary">オーダー</a>
+  <a href="" class="btn btn-secondary">キッチン</a>
+  <a href="" class="btn btn-secondary">会計</a>
   <a href="{{ route('config') }}" class="btn btn-primary">商品編集</a>
   <a></a>
 </section>

@@ -21,7 +21,7 @@ Route::group(['middleware' => ['auth']], function(){
         Route::get('/', 'SettingController@index')->name('setting');
         Route::get('/config', 'ConfigController@index')->name('config');
 
-        //商品編集
+        //商品カテゴリー編集
         Route::prefix('category')->group(function(){
             Route::match(['get', 'post'],'/', 'CategoryController@index')->name('category');
             Route::post('/edit', 'CategoryController@edit')->name('category.edit');
@@ -30,14 +30,23 @@ Route::group(['middleware' => ['auth']], function(){
             Route::post('/delete', 'CategoryController@delete')->name('category.delete');
         });
 
-        //商品編集
+        //アイテム編集
         Route::prefix('item')->group(function(){
             Route::match(['get', 'post'],'/', 'ItemController@index' )->name('item');
             Route::post('/edit', 'ItemController@edit')->name('item.edit');
             Route::post('/create', 'ItemController@create')->name('item.create');
             Route::post('/delete', 'ItemController@delete')->name('item.delete');
         });
+
     });
+    Route::prefix('hall')->group(function(){
+        Route::match(['get', 'post'],'/', 'HallController@index' )->name('hall');
+        Route::post('/edit', 'hallController@edit')->name('hall.edit');
+        Route::post('/create', 'hallController@create')->name('hall.create');
+        Route::post('/delete', 'hallController@delete')->name('hall.delete');
+    });
+   
+
 
     Route::get('/home', 'HomeController@index')->name('home');
 });

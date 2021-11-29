@@ -4,10 +4,10 @@
 <section>
 
   @if($categories->count() == 0)
-  <p>
-    カテゴリーがありません。<br>
-    カテゴリー設定から入力してください。
-  </p>
+  <div class="b-none-category">
+    <p class="m-text">カテゴリーがありません。<br>
+    カテゴリー設定から追加してください。</p>
+  </div>
   @else
 
   {{ Form::open(['route'=> 'item.edit'])}}

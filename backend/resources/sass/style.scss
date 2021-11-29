@@ -1,8 +1,12 @@
 @import 'variables';
 
+*{
+  font-family: $font-family-sans-serif;
+} 
 a{
   text-decoration: none !important;
   color: black;
+  font-family: 'M PLUS 1p', sans-serif !important;
 }
 
 .header-box{
@@ -53,13 +57,42 @@ body{
     max-width:200px;
   }
 }
+
+//------------------------
+//メニュー選択画面のサイドメニュー
+//------------------------
 .b-side-menu{
   color: white;
-  margin-top: 2rem;
-  .side-active{
+  margin: 1rem 0;
+  list-style: none;
+  padding-left: 0rem;
+  li{
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    >*{
+      color: $white;
+    }
+    >a{
+      // height: 100%;
+      width: 100%;
+      padding: 1rem 1rem;
+    }
+  }
+
+  i{
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  .active{
     font-weight: bold;
+    background: $white;
+    >*{
+      color: #222;
+    }
   }
 }
+
 //------------------------
 //メニュー選択画面
 //------------------------
@@ -157,6 +190,10 @@ body{
     vertical-align: middle !important;
   }
   >.e-color{
+    >.picker{
+      width: 2rem;
+      visibility:hidden;
+    }
     >div{
       height: 30px;
     }
@@ -167,5 +204,17 @@ body{
       font-size: 1.3rem;
       color: $u-main;
     }
+  }
+}
+
+//------------------------
+//商品編集
+//------------------------
+.b-none-category{
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  .m-text{
+    font-size: 1.1rem;
   }
 }

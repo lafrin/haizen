@@ -12,17 +12,22 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
-   .sass('resources/sass/style.scss', 'public/css')
-   .sass('resources/sass/common.scss', 'public/css');
+	.sass('resources/sass/app.scss', 'public/css')
+	.sass('resources/sass/style.scss', 'public/css')
+	.sass('resources/sass/common.scss', 'public/css');
+
+mix.styles([
+	'public/css/app.css',
+	'public/css/reset.css'
+], 'public/css/apps.css');
 
 mix.browserSync({
-   proxy: {
-         target: "http://127.0.0.1:8080",
-   },
-   files: [
-         'resources/views/**/*.blade.php',
-         'public/css/*.css',
-         'Http/*',
-   ],
+	proxy: {
+		target: "http://127.0.0.1:8080",
+	},
+	files: [
+		'resources/views/**/*.blade.php',
+		'public/css/*.css',
+		'Http/*',
+	],
 });

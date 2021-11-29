@@ -1,6 +1,11 @@
+* {
+  font-family: "M PLUS 1p", sans-serif;
+}
+
 a {
   text-decoration: none !important;
   color: black;
+  font-family: "M PLUS 1p", sans-serif !important;
 }
 
 .header-box {
@@ -57,11 +62,38 @@ body {
 
 .b-side-menu {
   color: white;
-  margin-top: 2rem;
+  margin: 1rem 0;
+  list-style: none;
+  padding-left: 0rem;
 }
 
-.b-side-menu .side-active {
+.b-side-menu li {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.b-side-menu li > * {
+  color: #fff;
+}
+
+.b-side-menu li > a {
+  width: 100%;
+  padding: 1rem 1rem;
+}
+
+.b-side-menu i {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.b-side-menu .active {
   font-weight: bold;
+  background: #fff;
+}
+
+.b-side-menu .active > * {
+  color: #222;
 }
 
 .top-menu {
@@ -149,6 +181,11 @@ body {
   vertical-align: middle !important;
 }
 
+.b-category-body > .e-color > .picker {
+  width: 2rem;
+  visibility: hidden;
+}
+
 .b-category-body > .e-color > div {
   height: 30px;
 }
@@ -160,5 +197,15 @@ body {
 .b-category-body > .e-trash .trash {
   font-size: 1.3rem;
   color: #8ADBF4;
+}
+
+.b-none-category {
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.b-none-category .m-text {
+  font-size: 1.1rem;
 }
 

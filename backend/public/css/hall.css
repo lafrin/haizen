@@ -213,3 +213,66 @@ input[type=number] {
   /* 丸の色*/
 }
 
+.b-table-header {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.b-table-header > .e-table-box {
+  margin: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.b-table-header > .e-table-box > .e-color {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.3rem;
+}
+
+.b-table-header > .e-table-box > .e-color.m-possible {
+  background: #AEF28D;
+}
+
+.b-table-header > .e-table-box > .e-color.m-use {
+  background: #8ADBF4;
+}
+
+.b-table-header > .e-table-box > .e-color.m-bill {
+  background: #F3D25B;
+}
+
+.b-table-header > .e-table-box > .e-color.m-cleaning {
+  background: #F88383;
+}
+
+.b-table-header > .e-table-box > .e-text {
+  margin-left: 0.1rem;
+}
+
+.b-tables-status {
+  width: 100%;
+}
+
+.b-tables-status > .e-table-box {
+  display: inline-block;
+  padding: 0.1rem;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #000;
+  border-radius: 0.3rem;
+  background: #8ADBF4;
+  text-align: center;
+}
+
+.b-tables-status > .e-table-box > .e-number {
+  border-radius: 0.3rem 0.3rem 0 0;
+  background: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+

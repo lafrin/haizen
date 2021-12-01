@@ -2,6 +2,8 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/style.css": "/css/style.css",
+    "/css/hall.css": "/css/hall.css",
+    "/css/top_menu.css": "/css/top_menu.css",
     "/css/common.css": "/css/common.css",
     "/css/apps.css": "/css/apps.css"
 }

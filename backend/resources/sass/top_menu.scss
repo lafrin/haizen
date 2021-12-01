@@ -1,0 +1,30 @@
+@import 'variables';
+
+
+//------------------------
+//メニュー選択画面
+//------------------------
+
+.top-menu{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  flex-wrap: wrap;
+
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    font-size: 1.5rem;
+    margin: 20px 30px;
+    width: 200px;
+    height: 100px;
+
+    div:last-child{
+      font-size: 1rem;
+    }
+
+  }
+}

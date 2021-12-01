@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'common';
+
+//------------------------
+//メニュー選択画面
+//------------------------
+.b-table-header{
+  width: 100%;
+  text-align: center;
+
+  @include flex-center;
+  >.e-table-box{
+    margin: 0 1rem;
+
+    @include flex-center;
+    >.e-color{
+      width: 1rem;
+      height: 1rem;
+      border-radius: 0.3rem;
+      &.m-possible{
+        background: $possible;
+      }
+      &.m-use{  
+        background: $use; 
+      } 
+      &.m-bill{
+        background: $bill;
+      } 
+      &.m-cleaning{ 
+        background: $cleaning;
+      }
+    }
+    >.e-text{
+      margin-left: 0.1rem; 
+    }
+  }
+}
+
+.b-tables-status{
+  width: 100%;  
+  >.e-table-box{
+    display: inline-block;
+    padding: 0.1rem;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #000;
+    border-radius: 0.3rem;
+    background: $use;  text-align: center;
+    >.e-number{
+      border-radius: 0.3rem 0.3rem 0 0;
+      background: #fff;
+      text-align: center;
+      font-weight: bold;
+    }
+    >.e-status{
+
+    }
+  }
+}

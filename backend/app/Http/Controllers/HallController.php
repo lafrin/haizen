@@ -15,7 +15,8 @@ class HallController extends Controller
     public function index()
     {
         $title = 'ホール';
-        return view('hall/hall', compact('title'));
+        $categories = ['possible'=>'可能','use'=>'使用','bill'=>'清算','cleaning'=>'清掃'];
+        return view('hall/hall', compact('title','categories'));
     }
 
     /**

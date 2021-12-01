@@ -19,12 +19,12 @@ class CreateShopsTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('phone_number_1', 5)->nullable();;
-            $table->string('phone_number_2', 5)->nullable();;
-            $table->string('phone_number_3', 5)->nullable();;
-            $table->string('zip_1', 5)->nullable();;
-            $table->string('zip_2', 5)->nullable();;
-            $table->string('address')->nullable();;
+            $table->string('phone_number_1', 5)->nullable();
+            $table->string('phone_number_2', 5)->nullable();
+            $table->string('phone_number_3', 5)->nullable();
+            $table->integer('zip_1')->nullable();
+            $table->integer('zip_2')->nullable();
+            $table->string('address')->nullable();
             $table->rememberToken();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

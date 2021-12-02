@@ -47,6 +47,7 @@ class CategoryController extends Controller
 
     public function create(Request $request)
     {
+        //419エラーの場合は3000でアクセスしているから
         $category = MenuCategory::create([
             'user_id' => Auth::id(),
             'color' => '#ffffff',

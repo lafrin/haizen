@@ -68,6 +68,7 @@ class ItemController extends Controller
 
     public function create(Request $request)
     {
+        //419エラーの場合は3000でアクセスしているから
         $image = $request->file('images');
         if($image){
             //putFile(フォルダパス,　画像file,　publicにすると公開設定（無くていい）)

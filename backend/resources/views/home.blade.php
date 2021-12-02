@@ -20,4 +20,6 @@
         </div>
     </div>
 </div>
+
+<a href="{{route('menu')}}" class="btn btn-primary">menu</a>
 @endsection

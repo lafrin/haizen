@@ -21,16 +21,14 @@ class CategoryController extends Controller
         
         $cnt = count($category['name']);
         for($i=0; $i< $cnt; $i++){
-            //checkboxはチェック無しの場合にpostされないので配列の数で判定している
-            //チェックあり：hidden+チェック=2　　チェック無し：hiddenのみ
-            $display =  count($category['display'][$i]) == 2 ? 1 : 0 ; 
+            $display =  isset( $category['display'][$i] ) ? 1 : 0 ; 
 
             MenuCategory::updateOrCreate(
                 [ 'id' => $category['id'][$i] ],
                 ['color' => $category['color'][$i],
                 'name' => $category['name'][$i],
                 'short_name' => $category['short_name'][$i],
-                'display' => $display
+                'is_display' => $display
                 ]
             );
         }

@@ -33,9 +33,7 @@
               }}</td>
             <td class="e-display">
               <label class="switchArea">
-                <!-- checkboxは0の時に送信されないのでon、off用に2つ作っている -->
-                <input type="hidden" name="category[display][{{$loop->index}}][]" value="0">
-                {{ Form::checkbox("category[display][$loop->index][]", true, $cat->display, ['class' => 'form-control'])
+                {{ Form::checkbox("category[display][$loop->index][]", true, $cat->is_display, ['class' => 'form-control'])
                 }}
 
                 <div class="e-border"></div>

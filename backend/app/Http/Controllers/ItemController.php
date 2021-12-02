@@ -48,8 +48,6 @@ class ItemController extends Controller
         $req_array = $request->toarray();
         
         foreach($req_array['item_id'] as $id){
-            //checkboxはチェック無しの場合にpostされないので配列の数で判定している
-            //チェックあり：hidden+チェック=2　　チェック無し：hiddenのみ=1
             $display =  isset( $req_array["display_$id"] ) ? 1 : 0 ; 
 
             MenuItem::updateOrCreate(
@@ -57,7 +55,7 @@ class ItemController extends Controller
                 ['category_id' => $req_array["category_id_$id"],
                 'name' => $req_array["name_$id"],
                 'price' => $req_array["price_$id"],
-                'display' => $display,
+                'is_display' => $display,
                 ]
             );
         }

@@ -54,8 +54,7 @@
             </td>
             <td class="e-display">
               <label class="switchArea">
-                <!-- checkboxは0の時に送信されないのでon、off用に2つ作っている -->
-                {{ Form::checkbox("display_$item->id", true, $item->display, ['class' => 'form-control'])
+                {{ Form::checkbox("display_$item->id", true, $item->is_display, ['class' => 'form-control'])
                 }}
 
                 <div class="e-border"></div>

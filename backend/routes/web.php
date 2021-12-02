@@ -38,6 +38,14 @@ Route::group(['middleware' => ['auth']], function(){
             Route::post('/delete', 'ItemController@delete')->name('item.delete');
         });
 
+        //アイテム編集
+        Route::prefix('table')->group(function(){
+            Route::match(['get', 'post'],'/', 'ShopTableController@index' )->name('table');
+            Route::post('/edit', 'ShopTableController@edit')->name('table.edit');
+            Route::post('/create', 'ShopTableController@create')->name('table.create');
+            Route::post('/delete', 'ShopTableController@delete')->name('table.delete');
+        });
+
     });
     Route::prefix('hall')->group(function(){
         Route::match(['get', 'post'],'/', 'HallController@index' )->name('hall');

@@ -88,7 +88,7 @@
 
 .b-category-head {
   font-weight: bold;
-  background: #ccc;
+  background: #bbb;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -103,7 +103,7 @@
 
 .b-category-body {
   width: 100%;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #bbb;
 }
 
 .b-category-body td {
@@ -125,7 +125,7 @@
 
 .b-category-body > .e-trash .trash {
   font-size: 1.3rem;
-  color: #8ADBF4;
+  color: #8adbf4;
 }
 
 .b-none-category {
@@ -137,4 +137,5 @@
 .b-none-category .m-text {
   font-size: 1.1rem;
 }
+
 

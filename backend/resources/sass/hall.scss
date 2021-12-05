@@ -1,57 +1,157 @@
-@import 'variables';
-@import 'common';
+@import "variables";
+@import "common";
+
+a:active,button:active{
+  filter: drop-shadow(3px 3px 2px rgba(143, 161, 170, 0));
+}
 
 //------------------------
-//メニュー選択画面
+//テーブル選択画面
 //------------------------
-.b-table-header{
+.b-table-header {
   width: 100%;
   text-align: center;
 
   @include flex-center;
-  >.e-table-box{
-    margin: 0 1rem;
+
+  >.e-table-box {
+    margin: 1rem;
 
     @include flex-center;
-    >.e-color{
+
+    >.e-color {
       width: 1rem;
       height: 1rem;
       border-radius: 0.3rem;
-      &.m-possible{
-        background: $possible;
+
+      &.m-disable {
+        background: $disable;
       }
-      &.m-use{  
-        background: $use; 
-      } 
-      &.m-bill{
+
+      &.m-enable {
+        background: $enable;
+      }
+
+      &.m-use {
+        background: $use;
+      }
+
+      &.m-bill {
         background: $bill;
-      } 
-      &.m-cleaning{ 
+      }
+
+      &.m-cleaning {
         background: $cleaning;
       }
     }
-    >.e-text{
-      margin-left: 0.1rem; 
+
+    >.e-text {
+      margin-left: 0.1rem;
     }
   }
 }
 
-.b-tables-status{
-  width: 100%;  
-  >.e-table-box{
+.b-tables-status {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 0.5rem 0.5rem;
+
+  >.e-table-box {
     display: inline-block;
     padding: 0.1rem;
-    width: 3rem;
-    height: 3rem;
-    border: 1px solid #000;
+    width: calc(100% / 3 - 0.4rem);
+    margin: 0.2rem;
+    height: 4rem;
+    border: 1px solid $lightgray;
     border-radius: 0.3rem;
-    background: $use;  text-align: center;
-    >.e-number{
+    background: $use;
+    text-align: center;
+    box-shadow: #0005 1px 2px  2px;
+
+    &.m-disable {
+      background: $disable;
+      box-shadow: #0000 0 0;
+    }
+
+    &.m-enable {
+      background: $enable;
+    } 
+
+    &.m-use { 
+      background: $use;
+    }
+
+    &.m-bill {
+ 
+      background: $bill;
+    }
+
+    &.m-cleaning {
+      background: $cleaning;
+    }
+
+    &:active {
+      box-shadow: #0000 0 0;
+    }
+
+    >.e-number {
       border-radius: 0.3rem 0.3rem 0 0;
       background: #fff;
       text-align: center;
       font-weight: bold;
     }
- 
+  }
+}
+
+#exampleModal{
+  .modal-content{
+    min-height: 50vh;
+  }
+}
+
+.b-modal-menu{
+  transition: all .3s;
+  text-align: center;
+  >.e-button{
+    width: 70%;
+    min-width: 10rem;
+    margin: 0.5rem 0;
+    background: $lightyellow;
+    &:active{
+      color: white;
+    }
+  }
+}
+.b-input-people,
+.b-input-bill,
+.b-input-disable,
+.b-input-clean,
+.b-input-cleaning{
+  text-align: center;
+  >.e-title{
+    font-weight: bold;
+  }
+  >.e-people-box{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    >.e-people{
+      width: 5rem; 
+    }
+  }
+  >.e-buttons{
+    >.e-button{
+      margin: 0 1rem;
+      width: 5rem;
+      &.m-plus{ 
+        background: $green;
+      }
+    }
+  }
+  >.e-submit{
+    margin: 2rem 0;
+    width: 7rem;
   }
 }

@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth']], function(){
             Route::post('/create', 'ShopTableController@create')->name('table.create');
             Route::post('/delete', 'ShopTableController@delete')->name('table.delete');
         });
-
+        
     });
     Route::prefix('hall')->group(function(){
         Route::match(['get', 'post'],'/', 'HallController@index' )->name('hall');

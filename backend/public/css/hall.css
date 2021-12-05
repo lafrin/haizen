@@ -36,7 +36,7 @@ header {
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  background: #8ADBF4;
+  background: #8adbf4;
   height: 50px;
   width: 100%;
 }
@@ -213,6 +213,11 @@ input[type=number] {
   /* 丸の色*/
 }
 
+a:active,
+button:active {
+  filter: drop-shadow(3px 3px 2px rgba(143, 161, 170, 0));
+}
+
 .b-table-header {
   width: 100%;
   text-align: center;
@@ -222,7 +227,7 @@ input[type=number] {
 }
 
 .b-table-header > .e-table-box {
-  margin: 0 1rem;
+  margin: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -234,20 +239,24 @@ input[type=number] {
   border-radius: 0.3rem;
 }
 
-.b-table-header > .e-table-box > .e-color.m-possible {
-  background: #AEF28D;
+.b-table-header > .e-table-box > .e-color.m-disable {
+  background: #767676;
+}
+
+.b-table-header > .e-table-box > .e-color.m-enable {
+  background: #aef28d;
 }
 
 .b-table-header > .e-table-box > .e-color.m-use {
-  background: #8ADBF4;
+  background: #8adbf4;
 }
 
 .b-table-header > .e-table-box > .e-color.m-bill {
-  background: #F3D25B;
+  background: #f3d25b;
 }
 
 .b-table-header > .e-table-box > .e-color.m-cleaning {
-  background: #F88383;
+  background: #f88383;
 }
 
 .b-table-header > .e-table-box > .e-text {
@@ -255,18 +264,48 @@ input[type=number] {
 }
 
 .b-tables-status {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
+  padding: 0 0.5rem 0.5rem;
 }
 
 .b-tables-status > .e-table-box {
   display: inline-block;
   padding: 0.1rem;
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid #000;
+  width: calc(33.3333333333% - 0.4rem);
+  margin: 0.2rem;
+  height: 4rem;
+  border: 1px solid #bbb;
   border-radius: 0.3rem;
-  background: #8ADBF4;
+  background: #8adbf4;
   text-align: center;
+  box-shadow: #0005 1px 2px 2px;
+}
+
+.b-tables-status > .e-table-box.m-disable {
+  background: #767676;
+  box-shadow: #0000 0 0;
+}
+
+.b-tables-status > .e-table-box.m-enable {
+  background: #aef28d;
+}
+
+.b-tables-status > .e-table-box.m-use {
+  background: #8adbf4;
+}
+
+.b-tables-status > .e-table-box.m-bill {
+  background: #f3d25b;
+}
+
+.b-tables-status > .e-table-box.m-cleaning {
+  background: #f88383;
+}
+
+.b-tables-status > .e-table-box:active {
+  box-shadow: #0000 0 0;
 }
 
 .b-tables-status > .e-table-box > .e-number {
@@ -275,4 +314,86 @@ input[type=number] {
   text-align: center;
   font-weight: bold;
 }
+
+#exampleModal .modal-content {
+  min-height: 50vh;
+}
+
+.b-modal-menu {
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.b-modal-menu > .e-button {
+  width: 70%;
+  min-width: 10rem;
+  margin: 0.5rem 0;
+  background: #f3d25b;
+}
+
+.b-modal-menu > .e-button:active {
+  color: white;
+}
+
+.b-input-people,
+.b-input-bill,
+.b-input-disable,
+.b-input-clean,
+.b-input-cleaning {
+  text-align: center;
+}
+
+.b-input-people > .e-title,
+.b-input-bill > .e-title,
+.b-input-disable > .e-title,
+.b-input-clean > .e-title,
+.b-input-cleaning > .e-title {
+  font-weight: bold;
+}
+
+.b-input-people > .e-people-box,
+.b-input-bill > .e-people-box,
+.b-input-disable > .e-people-box,
+.b-input-clean > .e-people-box,
+.b-input-cleaning > .e-people-box {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.b-input-people > .e-people-box > .e-people,
+.b-input-bill > .e-people-box > .e-people,
+.b-input-disable > .e-people-box > .e-people,
+.b-input-clean > .e-people-box > .e-people,
+.b-input-cleaning > .e-people-box > .e-people {
+  width: 5rem;
+}
+
+.b-input-people > .e-buttons > .e-button,
+.b-input-bill > .e-buttons > .e-button,
+.b-input-disable > .e-buttons > .e-button,
+.b-input-clean > .e-buttons > .e-button,
+.b-input-cleaning > .e-buttons > .e-button {
+  margin: 0 1rem;
+  width: 5rem;
+}
+
+.b-input-people > .e-buttons > .e-button.m-plus,
+.b-input-bill > .e-buttons > .e-button.m-plus,
+.b-input-disable > .e-buttons > .e-button.m-plus,
+.b-input-clean > .e-buttons > .e-button.m-plus,
+.b-input-cleaning > .e-buttons > .e-button.m-plus {
+  background: #38c172;
+}
+
+.b-input-people > .e-submit,
+.b-input-bill > .e-submit,
+.b-input-disable > .e-submit,
+.b-input-clean > .e-submit,
+.b-input-cleaning > .e-submit {
+  margin: 2rem 0;
+  width: 7rem;
+}
+
 

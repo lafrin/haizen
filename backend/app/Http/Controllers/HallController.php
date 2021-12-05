@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Hall;
+use App\Models\ShopTable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HallController extends Controller
 {
@@ -15,8 +16,9 @@ class HallController extends Controller
     public function index()
     {
         $title = 'ホール';
+        $tables = ShopTable::find(Auth::id())->get();
         $categories = ['possible'=>'可能','use'=>'使用','bill'=>'清算','cleaning'=>'清掃'];
-        return view('hall/hall', compact('title','categories'));
+        return view('hall/hall', compact('title', 'tables', 'categories'));
     }
 
     /**

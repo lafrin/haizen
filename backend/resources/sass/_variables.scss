@@ -1,6 +1,6 @@
 // Typography
 // $font-family-sans-serif: 'Nunito', sans-serif;
-$font-family-sans-serif: 'M PLUS 1p', sans-serif;;
+$font-family-sans-serif: "M PLUS 1p", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -19,19 +19,24 @@ $cyan: #6cb2eb;
 //add
 $darkgray: #333;
 $gray: #767676;
-$lightgray: #ccc;
+$lightgray: #bbb;
 $rime: #60dda9;
+$lightyellow: #f3d25b;
 
 //hall
-$possible: #AEF28D;
-$use: #8ADBF4;
-$bill: #F3D25B;
-$cleaning: #F88383;
+$disable: #767676;
+$disable_active: #767676;
+$enable: #aef28d;
+$enable_active: #aef28d;
+$use: #8adbf4;
+$use_active: #8adbf4;
+$bill: #f3d25b;
+$bill_active: #f3d25b;
+$cleaning: #f88383;
+$cleaning_active: #f88383;
 
 // Body
 $body-bg: #f8fafc;
 
-
-
 $white: #fff;
-$u-main: #8ADBF4;
+$u-main: #8adbf4;

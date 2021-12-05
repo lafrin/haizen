@@ -16,6 +16,7 @@
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
         <!-- Styles -->
+        <link href="{{ asset('css/reset.css?').date('is') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css?').date('is') }}" rel="stylesheet">
         <link href="{{ asset('css/common.css?').date('is') }}" rel="stylesheet">
         <link href="{{ asset('css/top_menu.css?').date('is') }}" rel="stylesheet">

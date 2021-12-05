@@ -1,9 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/style.css": "/css/style.css",
-    "/css/hall.css": "/css/hall.css",
-    "/css/top_menu.css": "/css/top_menu.css",
     "/css/common.css": "/css/common.css",
+    "/css/top_menu.css": "/css/top_menu.css",
+    "/css/hall.css": "/css/hall.css",
+    "/css/style.css": "/css/style.css",
     "/css/apps.css": "/css/apps.css"
 }

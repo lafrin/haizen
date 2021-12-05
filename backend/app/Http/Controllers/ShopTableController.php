@@ -29,14 +29,17 @@ class ShopTableController extends Controller
     public function create(Request $request)
     {
         //419エラーの場合は3000でアクセスしているから
-        $category = ShopTable::create([
+        $table = ShopTable::create([
             'shop_id' => Auth::id(),
             'table_name' => $request->name,
             'status' => 0,
             'max_people' => $request->people,
             'is_display' => 0
         ]);
-        
+
+        $table->id_hash = \Hash::make($table->id);
+        $table->save();
+
         return redirect()->route('table');
     }
 

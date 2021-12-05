@@ -15,6 +15,7 @@ class CreateShopTablesTable extends Migration
     {
         Schema::create('shop_tables', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('id_hash')->nullable();
             $table->text('table_name');
             $table->integer('shop_id');
             $table->integer('status')->default(0);
@@ -22,7 +23,6 @@ class CreateShopTablesTable extends Migration
             $table->boolean('is_display')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-
         });
     }
 

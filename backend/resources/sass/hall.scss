@@ -71,7 +71,6 @@ a:active,button:active{
 
     &.m-disable {
       background: $disable;
-      box-shadow: #0000 0 0;
     }
 
     &.m-enable {
@@ -95,12 +94,20 @@ a:active,button:active{
       box-shadow: #0000 0 0;
     }
 
+    >.e-number,>.e-status{
+      @include flex-center;
+      height: 50%;
+      line-height: 1rem;
+      overflow: anywhere;
+    }
     >.e-number {
+
       border-radius: 0.3rem 0.3rem 0 0;
       background: #fff;
       text-align: center;
       font-weight: bold;
     }
+
   }
 }
 
@@ -124,9 +131,10 @@ a:active,button:active{
   }
 }
 .b-input-people,
+.b-input-enable,
 .b-input-bill,
 .b-input-disable,
-.b-input-clean,
+.b-input-cleaned,
 .b-input-cleaning{
   text-align: center;
   >.e-title{

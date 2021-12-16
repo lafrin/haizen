@@ -18,8 +18,9 @@ class CreateShopTablesTable extends Migration
             $table->string('id_hash')->nullable();
             $table->text('table_name');
             $table->integer('shop_id');
-            $table->integer('status')->default(0);
+            $table->integer('status')->default(9);
             $table->integer('max_people');
+            $table->integer('people')->default(0);
             $table->boolean('is_display')->default(0);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

@@ -16,7 +16,7 @@ class HallController extends Controller
     public function index()
     {
         $title = 'ホール';
-        $tables = ShopTable::find(Auth::id())->get();
+        $tables = ShopTable::where('shop_id', Auth::id())->get();
         $categories = ['possible'=>'可能','use'=>'使用','bill'=>'清算','cleaning'=>'清掃'];
         return view('hall/hall', compact('title', 'tables', 'categories'));
     }
@@ -71,10 +71,25 @@ class HallController extends Controller
      * @param  \App\Hall  $hall
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hall $hall)
+    public function updateEnable(Request $request)
     {
-        //
+        $table = ShopTable::where('id',$request->id)->first();
+        $table->people = $request->people;
+        $table->status = $request->status;
+
+        if($request->action === 'use'){
+            $table->setUse();
+        }
+        if($request->action === 'enable'){
+            $table->setEnable();
+        }
+        if($request->action === 'disable'){
+            $table->setDisable();
+        }
+        return $table->getTableData($request->action);
     }
+
+
 
     /**
      * Remove the specified resource from storage.

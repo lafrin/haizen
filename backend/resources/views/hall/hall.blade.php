@@ -3,7 +3,8 @@
 @section('content')
 <section>
 
-  
+
+
   <div class="b-table-header">
     <?php foreach( config('const.HALL.NUM') as $key => $row ): ?>
       <div class="e-table-box">
@@ -11,33 +12,41 @@
         <div class="e-text">{{ $row['jp'] }}</div> 
       </div>
     <?php endforeach ?>
-
   </div>
-  
+
+  @if( $tables->isEmpty() )
+    <div>テーブルが登録されていません。</div>
+  @endif
+
   <div class="b-tables-status">
-    @foreach($tables as $key => $row)
-      <button class="e-table-box m-{{ config( 'const.HALL.NUM.'.$row->status )['en'] }}"
-      data-toggle="modal" data-target="#exampleModal" data-id="{{ $row->id }}"> 
-        <div class="e-number">{{ $row->table_name }}</div>
+    @foreach($tables as $key => $table)
+      <button class="e-table-box m-{{ config( 'const.HALL.NUM.'.$table->status )['en'] }}"
+      data-toggle="modal" data-target="#hallModal" data-id="{{ $table->id }}" data-table="{{ $table->table_name }}"> 
+        <div class="e-number">{{ $table->table_name }}</div>
         <div class="e-status">
-          @if( $row->status == config( 'const.HALL.EN_NUM.cleaning' ))
-            {{ config( 'const.HALL.NUM.'.$row->status )['jp'] }}
-          @else
-            {{ $row->max_people }}名席
+          
+          @if( $table->status == config( 'const.HALL.EN.enable' )['num'])
+            {{ $table->max_people }}名席
+          @elseif( $table->status == config( 'const.HALL.EN.cleaning' )['num'])
+            {{ config( 'const.HALL.NUM.'.$table->status )['jp'] }}
+          @elseif( $table->status == config( 'const.HALL.EN.disable' )['num'])
+            使用不可
+          @elseif( $table->status == config( 'const.HALL.EN.use' )['num'])
+            {{ $table->people }}名
           @endif
-      </div>
+        </div>
       </button>
     @endforeach
   </div>
 
 
   <!-- モーダル -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="hallModal" tabindex="-1" role="dialog" aria-labelledby="hallModalLabel"
   aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><span class="e-modal-title"></span>番テーブル</h5>
+          <h5 class="modal-title"><span class="e-modal-table-name"></span>テーブル</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
@@ -46,31 +55,33 @@
           <!-- <form method="POST" action="{{ route('item.create')}}" enctype="multipart/form-data"> -->
             <!-- @csrf -->
 
+            <input class="e-modal-table-number" type="text" value="aiu">
+
             <div class="b-modal-menu b-modal-enable">
-              <button class="e-button btn m-button-people">人数入力</button>
-              <a class="e-button btn m-button-cleaning">清掃中に変更</a>
+              <button class="e-button btn m-button-people">案内人数を入力</button>
+              <a class="e-button btn m-button-disable">使用不可に変更</a>
             </div>
 
             <div class="b-modal-menu b-modal-use">
-              <a class="e-button btn">オーダー</a>
-              <button class="e-button btn m-button-bill">お会計</button>
-              <a class="e-button btn">注文履歴</a>
-              <a class="e-button btn">テーブル変更</a>
+              <a class="e-button btn">×　オーダー</a>
+              <button class="e-button btn m-button-bill">×　お会計</button>
+              <a class="e-button btn">×　注文履歴</a>
+              <a class="e-button btn">×　テーブル変更</a>
             </div>
 
             <div class="b-modal-menu b-modal-cleaning">
-              <a class="e-button btn m-button-clean">清掃済み</a>
+              <button class="e-button btn m-button-enable">使用可能に変更</button>
             </div>
 
             <div class="b-modal-menu b-modal-disable">
-              <button class="e-button btn m-button-disable">使用可能に変更</button>
+              <button class="e-button btn m-button-enable">使用可能に変更</button>
             </div>
 
             <!-- 人数入力 -->
             <div class="b-input-people">
               <div class="e-title">人数を入力</div>
               <div class="e-people-box form-group">
-                <input type="number" class="form-control e-people" value="0">人
+                <span>　</span><input type="number" class="form-control e-people" value="0">人
               </div>
               <div class="e-buttons">
                 <button class="btn btn-danger e-button m-minus">-</button>
@@ -79,28 +90,29 @@
               <button class="btn btn-primary e-submit m-people">案内する</button>
             </div>
 
-            <!-- 清算 -->
             <div class="b-input-bill">
-              <div class="e-title">清算しますか？</div>
+              <div class="e-title">清算に変更しますか？</div>
               <button class="btn btn-primary e-submit m-bill">清算する</button>
             </div>
 
-            <!-- 清掃中に変更 -->
             <div class="b-input-cleaning">
               <div class="e-title">清掃中に変更しますか？</div>
               <button class="btn btn-primary e-submit m-cleaning">変更する</button>
             </div>
 
-            <!-- 清掃済みに変更 -->
-            <div class="b-input-clean">
+            <!-- <div class="b-input-cleaned">
               <div class="e-title">清掃済みに変更しますか？</div>
-              <button class="btn btn-primary e-submit m-clean">変更する</button>
+              <button class="btn btn-primary e-submit m-cleaned">変更する</button>
+            </div> -->
+
+            <div class="b-input-enable">
+              <div class="e-title">使用不可に変更しますか？</div>
+              <button class="btn btn-primary e-submit m-disable">不可にする</button>
             </div>
 
-            <!-- 使用不可 -->
             <div class="b-input-disable">
-              <div class="e-title">使用可能にしますか？</div>
-              <button class="btn btn-primary e-submit m-disable">可能にする</button>
+              <div class="e-title">使用可能に変更しますか？</div>
+              <button class="btn btn-primary e-submit m-enable">可能にする</button>
             </div>
 
           <!-- </form> -->
@@ -121,64 +133,77 @@
       toastr.info("{{session('flash_msg')}}");
     @endif
 
-
-    //削除
-    $('.delete-btn').on('click',function(){
-
-      const row = $(this).parents('.b-category-body');
-      const cat_id =  row.find('.category_id').val();
-      const name = row.find('.e-name').find('input').val(); 
-
-      if( !confirm(name + 'を削除しますか？') ){
-        return;
-      }
-      
-      axios({
-        method: 'post',
-        url: "{{ route('item.delete')}}",
-        data: 'category_id='+cat_id
-        }).then(res => {
-            toastr.info(name + "を削除しました" );
-            row.remove();
-        }).catch(err => {
-            console.log(err.response.data);
-            
-        });
-    });
-
     ////////////////////////////////
     // モーダル開く
-    $('.m-enable').on('click', function(){
-      hideModalMenu($(this).data('id'));
+    $(document).on('click', '.e-table-box.m-enable', function(){
+      hideModalMenu($(this));
       $('.b-modal-enable').show();
     })
-    $('.m-use').on('click', function(){
-      hideModalMenu($(this).data('id'));
+    $(document).on('click', '.e-table-box.m-use', function(){
+      hideModalMenu($(this));
       $('.b-modal-use').show();
     })
-    $('.m-cleaning').on('click', function(){
-      hideModalMenu($(this).data('id'));
+    $(document).on('click', '.e-table-box.m-cleaning', function(){
+      hideModalMenu($(this));
       $('.b-modal-cleaning').show();
     })
-    $('.m-disable').on('click', function(){
-      hideModalMenu($(this).data('id'));
+    $(document).on('click', '.e-table-box.m-disable', function(){
+      hideModalMenu($(this));
       $('.b-modal-disable').show();
     })
-
-    function hideModalMenu(id){
-      console.log(id);
+    function hideModalMenu( content ){
+      let id = content.data('id');
+      let name = content.data('table');
       $('.b-modal-enable').hide();
       $('.b-modal-use').hide();
       $('.b-modal-cleaning').hide();
       $('.b-modal-disable').hide();
 
       $('.b-input-people').hide();
+      $('.b-input-enable').hide();
       $('.b-input-cleaning').hide();
-      $('.b-input-clean').hide();
+      // $('.b-input-cleaned').hide();
       $('.b-input-bill').hide();
       $('.b-input-disable').hide();
-      $('.e-modal-title').text( id ); 
+
+      $('.e-modal-table-number').val( id ); 
+      $('.e-modal-table-name').text( name ); 
     }
+
+    ////////////////////////////////
+    // 清掃済みボタン
+    // $('.m-button-cleaned').on('click', function(){
+    //   $('.b-modal-menu').hide();
+    //   $('.b-input-enable').show();
+    // })
+    
+    ////////////////////////////////
+    // 清掃中ボタン
+    $('.m-button-cleaning').on('click', function(){
+      $('.b-modal-menu').hide();
+      $('.b-input-enable').show();
+    })
+
+    ////////////////////////////////
+    // 会計モーダル
+    $('.m-button-bill').on('click', function(){
+      $('.b-modal-menu').hide();
+      $('.b-input-bill').show();
+    })
+
+    ////////////////////////////////
+    // 使用可ボタン
+    $('.m-button-enable').on('click', function(){
+      $('.b-modal-menu').hide();
+      $('.b-input-disable').show();
+    })
+
+    ////////////////////////////////
+    // 使用不可ボタン
+    $('.m-button-disable').on('click', function(){
+      $('.b-modal-menu').hide();
+      $('.b-input-enable').show();
+    })
 
     ////////////////////////////////
     // 人数入力モーダル
@@ -201,34 +226,58 @@
       people.val( Number(people.val()) +1 );
     })
 
-    ////////////////////////////////
-    // 清掃中モーダル
-    $('.m-button-cleaning').on('click', function(){
-      $('.b-modal-menu').hide();
-      $('.b-input-cleaning').show();
-    })
-    
-    ////////////////////////////////
-    // 清掃モーダル
-    $('.m-button-clean').on('click', function(){
-      $('.b-modal-menu').hide();
-      $('.b-input-clean').show();
+    //人数入力の決定
+    $('.e-submit.m-people').on('click', function(){
+      changeTableStatus('use');
     })
 
-    ////////////////////////////////
-    // 清算モーダル
-    $('.m-button-bill').on('click', function(){
-      $('.b-modal-menu').hide();
-      $('.b-input-bill').show();
+    //使用可能に変更
+    $('.e-submit.m-enable').on('click', function(){
+      changeTableStatus('enable');
     })
 
-    ////////////////////////////////
-    // 使用不可モーダル
-    $('.m-button-disable').on('click', function(){
-      $('.b-modal-menu').hide();
-      $('.b-input-disable').show();
+    //使用不可に変更
+    $('.e-submit.m-disable').on('click', function(){
+      changeTableStatus('disable');
     })
-    
+
+    //変更をサーバーへ投げる
+    function changeTableStatus( action ){
+      const table = getTableInfomation()
+      axios.post(
+        "{{ route('hall.update_enable') }}",
+        { id: table.id, people: table.people, name: table.name, action: action}
+      ).then(function(res) {
+        console.log(res.data);
+        // toastr.info( res.data );
+        $('#hallModal').modal('hide');
+        changeTableClass(action, res.data);
+      }).catch(err => {
+        console.log(err.response.data);
+        toastr.error( res.data );
+      });
+    }
+
+    function changeTableClass( action, tableInfo ){
+      const table = getTableInfomation();
+      let data = $('.e-table-box[data-id="' + tableInfo.id + '"]');
+      data.removeClass('m-enable');
+      data.removeClass('m-disable');
+      data.removeClass('m-cleaning');
+      data.removeClass('m-use');
+      data.addClass( 'm-' + action );
+      data.find('.e-status').text(tableInfo.state);
+    }
+
+    //モーダルから情報収集
+    function getTableInfomation(){
+      let id = $('.e-modal-table-number').val();
+      let people = $('.e-people-box .e-people').val();
+      let name = $('.e-modal-table-name').text();
+      return {'id':id, 'people':people, 'name':name }
+    }
+
   })//function-end
+
 </script>
 @endsection

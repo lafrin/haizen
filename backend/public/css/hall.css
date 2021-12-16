@@ -33,7 +33,7 @@ a {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   font-weight: bold;
   background: #8adbf4;
@@ -285,7 +285,6 @@ button:active {
 
 .b-tables-status > .e-table-box.m-disable {
   background: #767676;
-  box-shadow: #0000 0 0;
 }
 
 .b-tables-status > .e-table-box.m-enable {
@@ -306,6 +305,16 @@ button:active {
 
 .b-tables-status > .e-table-box:active {
   box-shadow: #0000 0 0;
+}
+
+.b-tables-status > .e-table-box > .e-number,
+.b-tables-status > .e-table-box > .e-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  line-height: 1rem;
+  overflow: anywhere;
 }
 
 .b-tables-status > .e-table-box > .e-number {
@@ -336,25 +345,28 @@ button:active {
 }
 
 .b-input-people,
+.b-input-enable,
 .b-input-bill,
 .b-input-disable,
-.b-input-clean,
+.b-input-cleaned,
 .b-input-cleaning {
   text-align: center;
 }
 
 .b-input-people > .e-title,
+.b-input-enable > .e-title,
 .b-input-bill > .e-title,
 .b-input-disable > .e-title,
-.b-input-clean > .e-title,
+.b-input-cleaned > .e-title,
 .b-input-cleaning > .e-title {
   font-weight: bold;
 }
 
 .b-input-people > .e-people-box,
+.b-input-enable > .e-people-box,
 .b-input-bill > .e-people-box,
 .b-input-disable > .e-people-box,
-.b-input-clean > .e-people-box,
+.b-input-cleaned > .e-people-box,
 .b-input-cleaning > .e-people-box {
   margin-top: 1rem;
   display: flex;
@@ -363,34 +375,38 @@ button:active {
 }
 
 .b-input-people > .e-people-box > .e-people,
+.b-input-enable > .e-people-box > .e-people,
 .b-input-bill > .e-people-box > .e-people,
 .b-input-disable > .e-people-box > .e-people,
-.b-input-clean > .e-people-box > .e-people,
+.b-input-cleaned > .e-people-box > .e-people,
 .b-input-cleaning > .e-people-box > .e-people {
   width: 5rem;
 }
 
 .b-input-people > .e-buttons > .e-button,
+.b-input-enable > .e-buttons > .e-button,
 .b-input-bill > .e-buttons > .e-button,
 .b-input-disable > .e-buttons > .e-button,
-.b-input-clean > .e-buttons > .e-button,
+.b-input-cleaned > .e-buttons > .e-button,
 .b-input-cleaning > .e-buttons > .e-button {
   margin: 0 1rem;
   width: 5rem;
 }
 
 .b-input-people > .e-buttons > .e-button.m-plus,
+.b-input-enable > .e-buttons > .e-button.m-plus,
 .b-input-bill > .e-buttons > .e-button.m-plus,
 .b-input-disable > .e-buttons > .e-button.m-plus,
-.b-input-clean > .e-buttons > .e-button.m-plus,
+.b-input-cleaned > .e-buttons > .e-button.m-plus,
 .b-input-cleaning > .e-buttons > .e-button.m-plus {
   background: #38c172;
 }
 
 .b-input-people > .e-submit,
+.b-input-enable > .e-submit,
 .b-input-bill > .e-submit,
 .b-input-disable > .e-submit,
-.b-input-clean > .e-submit,
+.b-input-cleaned > .e-submit,
 .b-input-cleaning > .e-submit {
   margin: 2rem 0;
   width: 7rem;

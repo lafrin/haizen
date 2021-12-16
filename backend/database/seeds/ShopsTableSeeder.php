@@ -14,7 +14,7 @@ class ShopsTableSeeder extends Seeder
         DB::table('shops')->insert([
             'shop_name' => 'haya',
             'email' => 'test@gmail.com',
-            'password' => '$2y$10$VFWto3BxgMGRTxEdV5qOae1fj2TRS7K6IatOM8cWB90wxGLULJ9yG	',
+            'password' => '$2y$10$VFWto3BxgMGRTxEdV5qOae1fj2TRS7K6IatOM8cWB90wxGLULJ9yG',
         ]);
     }
 }

@@ -32,7 +32,7 @@ class ShopTableController extends Controller
         $table = ShopTable::create([
             'shop_id' => Auth::id(),
             'table_name' => $request->name,
-            'status' => 0,
+            'status' => 9,
             'max_people' => $request->people,
             'is_display' => 0
         ]);

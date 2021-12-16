@@ -26,8 +26,8 @@ class LoginController extends Controller
      *
      * @var string
      */
+    protected $redirectTo = '/top_menu';
     // protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = ('top_menu');
 
     /**
      * Create a new controller instance.
@@ -39,9 +39,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-
-    // public function redirectPath()
-    // {
-    //     return route('menu');
-    // }
 }

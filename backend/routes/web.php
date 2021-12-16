@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function(){
+    Route::redirect('/', '/top_menu');
     Route::get('/top_menu', 'TopMenuController@index')->name('menu');
 
     Route::prefix('setting')->group(function(){
@@ -49,12 +50,10 @@ Route::group(['middleware' => ['auth']], function(){
     });
     Route::prefix('hall')->group(function(){
         Route::match(['get', 'post'],'/', 'HallController@index' )->name('hall');
-        Route::post('/edit', 'hallController@edit')->name('hall.edit');
-        Route::post('/create', 'hallController@create')->name('hall.create');
-        Route::post('/delete', 'hallController@delete')->name('hall.delete');
+        Route::post('/update_enable', 'HallController@updateEnable')->name('hall.update_enable');
+        Route::post('/edit', 'HallController@edit')->name('hall.edit');
+        Route::post('/create', 'HallController@create')->name('hall.create');
+        Route::post('/delete', 'HallController@delete')->name('hall.delete');
     });
-   
 
-
-    Route::get('/home', 'HomeController@index')->name('home');
 });

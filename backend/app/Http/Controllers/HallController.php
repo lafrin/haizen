@@ -16,7 +16,8 @@ class HallController extends Controller
     public function index()
     {
         $title = 'ホール';
-        $tables = ShopTable::where('shop_id', Auth::id())->get();
+        $tables = ShopTable::where('shop_id', Auth::id())
+        ->where('is_display', 1)->get();
         $categories = ['possible'=>'可能','use'=>'使用','bill'=>'清算','cleaning'=>'清掃'];
         return view('hall/hall', compact('title', 'tables', 'categories'));
     }

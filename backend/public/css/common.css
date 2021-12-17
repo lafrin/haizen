@@ -33,7 +33,7 @@ a {
 
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-weight: bold;
   background: #8adbf4;
@@ -46,11 +46,16 @@ header div {
 }
 
 header .back i {
+  margin-left: 2rem;
   font-size: 1.4rem;
 }
 
-header .text {
+header .title {
   font-size: 1.6rem;
+}
+
+header .logout {
+  margin-right: 2rem;
 }
 
 main {
